@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import chroma from "chroma-js";
-import { Container, Work } from "./styles";
+import { Container, ContainerWorks, Work } from "./styles";
 
 function Works() {
-  const scale = chroma.scale(["purple", "lightblue"]).mode("lab");
+  const scale = chroma.scale([
+    "rgba(147, 26, 222, 0.83)",
+    "rgba(28, 206, 234, 0.82)"
+  ]);
   const [works, setWorks] = useState([
     {
       id: 1,
@@ -48,7 +51,25 @@ function Works() {
       image: ""
     },
     {
-      id: 8,
+      id: 9,
+      title: "Trabalho 1",
+      description: "Um bom texto de descrição",
+      image: ""
+    },
+    {
+      id: 10,
+      title: "Trabalho 1",
+      description: "Um bom texto de descrição",
+      image: ""
+    },
+    {
+      id: 11,
+      title: "Trabalho 1",
+      description: "Um bom texto de descrição",
+      image: ""
+    },
+    {
+      id: 12,
       title: "Trabalho 1",
       description: "Um bom texto de descrição",
       image: ""
@@ -57,11 +78,15 @@ function Works() {
 
   return (
     <Container>
-      {works.map(work => (
-        <Work key={work.id} color={scale(work.id / 10)}>
-          <p>work.title</p>
-        </Work>
-      ))}
+      <h4>TrABalHo</h4>
+      <ContainerWorks>
+        {works.map(work => (
+          <Work
+            key={work.id}
+            color={scale((100 * work.id) / works.length / 100)}
+          ></Work>
+        ))}
+      </ContainerWorks>
     </Container>
   );
 }

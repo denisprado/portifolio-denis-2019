@@ -6,10 +6,24 @@ export const LayerContainer = styled(ParallaxLayer)`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgba(28, 206, 234, 0.82);
-  background: linear-gradient(
-    -45deg,
-    rgba(147, 26, 222, 0.83) 0%,
-    rgba(28, 206, 234, 0.82) 100%
-  );
+  background-color: transparent;
+  background: ${props =>
+    props.bgColorGradient
+      ? `linear-gradient(${[
+          props.bgColorGradient[0],
+          props.bgColorGradient[1],
+          props.bgColorGradient[2]
+        ]})`
+      : null};
+`;
+
+export const Menu = styled.div`
+  padding: 1rem;
+  position: fixed;
+  display: flex;
+  ul {
+    li {
+      margin: 1rem 0rem 1rem 1rem;
+    }
+  }
 `;

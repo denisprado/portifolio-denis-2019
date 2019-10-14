@@ -6,7 +6,6 @@ import ProjectsActions from "../ducks/projects";
 
 export function* getProjects() {
   const response = yield call(api.get, "projects");
-
   yield put(ProjectsActions.getProjectsSuccess(response.data));
 }
 
@@ -23,6 +22,7 @@ export function* createProject({ title, description }) {
       title,
       description
     });
+    console.log(title);
     yield put(ProjectsActions.createProjectSuccess(response.data));
     yield put(ProjectsActions.closeProjectModal());
   } catch (err) {

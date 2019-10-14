@@ -37,9 +37,10 @@ export const Work = styled.div`
     p {
       transform: rotate(0deg);
     }
-    background-image: url("https://picsum.photos/500/800");
+    background-image: ${props => props.image && `url('${props.image}')`};
     background-repeat: no-repeat;
     background-position: center;
+    background-size: cover;
     margin: 0.35rem;
     height: 50vh;
     width: 40vh;

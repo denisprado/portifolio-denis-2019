@@ -1,10 +1,11 @@
 import React from "react";
 
-import { Parallax, ParallaxLayer } from "react-spring/renderprops-addons";
+import { Parallax } from "react-spring/renderprops-addons";
 import Sobre from "../Sobre";
 import Home from "../Home";
 import Works from "../Works";
 
+import Button from "../../styles/components/Buttons";
 import { LayerContainer, Menu } from "./styles";
 
 function MainNavigation() {
@@ -15,7 +16,7 @@ function MainNavigation() {
       <Parallax ref={ref => (parallax = ref)} pages={4}>
         <LayerContainer
           factor={0.95}
-          bgColorGradient={[
+          bgcolorgradient={[
             "-45deg",
             "rgba(147, 26, 222, 0.83)",
             "rgba(28, 206, 234, 0.82)"
@@ -51,13 +52,19 @@ function MainNavigation() {
         ></img>
         <ul>
           <li>
-            <a onClick={() => parallax.scrollTo(1)}>Sobre</a>
+            <Button link onClick={() => parallax.scrollTo(1)}>
+              Sobre
+            </Button>
           </li>
           <li>
-            <a onClick={() => parallax.scrollTo(2)}>Trabalho</a>
+            <Button link onClick={() => parallax.scrollTo(2)}>
+              Trabalho
+            </Button>
           </li>
           <li>
-            <a onClick={() => parallax.scrollTo(3)}>contato</a>
+            <Button link onClick={() => parallax.scrollTo(3)}>
+              contato
+            </Button>
           </li>
         </ul>
       </Menu>

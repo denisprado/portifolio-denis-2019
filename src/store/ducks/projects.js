@@ -26,8 +26,7 @@ export default Creators;
 export const INITIAL_STATE = Immutable({
   data: [],
   projectModalOpen: false,
-  project: null,
-  mapView: false
+  project: null
 });
 
 /* Reducers */

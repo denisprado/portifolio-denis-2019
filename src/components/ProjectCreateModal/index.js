@@ -10,9 +10,12 @@ import Button from "../../styles/components/Buttons";
 function ProjectCreateModal() {
   const dispatch = useDispatch();
   const projects = useSelector(state => state.projects);
+
   function handleNewProjectSubmit({ title, description }) {
+    console.log(title);
     dispatch(ProjectsActions.createProjectRequest(title, description));
   }
+
   useEffect(() => {
     const listener = e => {
       if (e.key === "Escape") {
@@ -25,12 +28,13 @@ function ProjectCreateModal() {
       window.removeEventListener("keydown", listener);
     };
   }, [dispatch]);
+
   return projects.projectModalOpen ? (
     <Modal size="big">
       <h1>Criar projeto</h1>
       <ModalForm onSubmit={handleNewProjectSubmit}>
         <span>Nome</span>
-        <ModalInput name="title" />
+        <ModalInput name="title" id="title" />
 
         <span>Description</span>
         <ModalInput multiline rows="5" name="description" />

@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled, { css } from "styled-components";
 
 const sizes = {
   small: css`
@@ -12,7 +12,7 @@ const sizes = {
   big: css`
     height: 48px;
     font-size: 18px;
-  `,
+  `
 };
 
 const colors = {
@@ -34,12 +34,10 @@ const colors = {
     &:hover {
       background: #999;
     }
-  `,
+  `
 };
 
-const Button = styled.button.attrs({
-  type: 'button',
-})`
+const Button = styled.button.attrs({})`
   border-radius: 3px;
   transition: background-color 0.15s ease;
   background: #7289da;
@@ -51,14 +49,26 @@ const Button = styled.button.attrs({
   text-transform: uppercase;
   font-weight: 700;
 
-  ${(props) => sizes[props.sizes || 'default']}
-  ${(props) => colors[props.color || 'default']}
+  ${props => sizes[props.sizes || "default"]}
+  ${props => colors[props.color || "default"]}
 
-  ${(props) => props.filled === false
-    && css`
+  ${props =>
+    props.filled === false &&
+    css`
       background: none;
       &:hover {
         background: none;
+        opacity: 0.6;
+      }
+    `}
+  ${props =>
+    props.link === true &&
+    css`
+      background: none;
+      border: none;
+      &:hover {
+        background: none;
+        border: none;
         opacity: 0.6;
       }
     `}

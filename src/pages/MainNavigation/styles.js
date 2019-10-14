@@ -8,11 +8,11 @@ export const LayerContainer = styled(ParallaxLayer)`
   justify-content: center;
   background-color: transparent;
   background: ${props =>
-    props.bgColorGradient
+    props.bgcolorgradient
       ? `linear-gradient(${[
-          props.bgColorGradient[0],
-          props.bgColorGradient[1],
-          props.bgColorGradient[2]
+          props.bgcolorgradient[0],
+          props.bgcolorgradient[1],
+          props.bgcolorgradient[2]
         ]})`
       : null};
 `;
@@ -24,6 +24,7 @@ export const Menu = styled.div`
   ul {
     li {
       margin: 1rem 0rem 1rem 1rem;
+      }
     }
   }
 `;

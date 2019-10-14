@@ -66,6 +66,11 @@ function MainNavigation() {
               contato
             </Button>
           </li>
+          <li>
+            <Button link to="/signin">
+              Signin
+            </Button>
+          </li>
         </ul>
       </Menu>
     </>

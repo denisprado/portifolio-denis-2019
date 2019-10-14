@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import FilesActions from "../../store/ducks/files";
 import Button from "../../styles/components/Buttons";
 import { ModalForm } from "../Modal/styles";
+import Modal from "../Modal";
 
 function UploadFiles() {
   const dispatch = useDispatch();
@@ -39,25 +40,27 @@ function UploadFiles() {
   }, [dispatch]);
 
   return (
-    <ModalForm onSubmit={onSubmit} encType="multipart/form-data">
-      <input
-        type="file"
-        name="files[]"
-        id="files"
-        multiple
-        onChange={onInput}
-      />
-      <Button type="submit"> Enviar </Button>
-      <Button
-        onClick={() => {
-          dispatch(FilesActions.closeModalUpload());
-        }}
-        size="small"
-        color="gray"
-      >
-        Cancelar
-      </Button>
-    </ModalForm>
+    <Modal size="big">
+      <ModalForm onSubmit={onSubmit} encType="multipart/form-data">
+        <input
+          type="file"
+          name="files[]"
+          id="files"
+          multiple
+          onChange={onInput}
+        />
+        <Button type="submit"> Enviar </Button>
+        <Button
+          onClick={() => {
+            dispatch(FilesActions.closeModalUpload());
+          }}
+          size="small"
+          color="gray"
+        >
+          Cancelar
+        </Button>
+      </ModalForm>
+    </Modal>
   );
 }
 

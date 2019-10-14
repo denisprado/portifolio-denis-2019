@@ -1,9 +1,13 @@
 import chroma from "chroma-js";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import ProjectCreateModal from "../../components/ProjectCreateModal";
 import ProjectsActions from "../../store/ducks/projects";
+import ProjectCreateModal from "../../components/ProjectCreateModal";
+import UploadFiles from "../../components/UploadFiles";
+import FilesActions from "../../store/ducks/files";
 import { Container, ContainerWorks, Work } from "./styles";
+import Button from "../../styles/components/Buttons";
+import Can from "../../components/Can";
 
 function Works() {
   const scale = chroma.scale([
@@ -20,27 +24,38 @@ function Works() {
     dispatch(ProjectsActions.openProjectModal());
   }
 
-  const { projectModalOpen } = useSelector(state => state.projects);
+  function handleUploadFiles(project) {
+    dispatch(ProjectsActions.selectProject(project));
+    dispatch(FilesActions.openModalUpload());
+  }
+
   const works = useSelector(state => state.projects);
+  const { projectModalOpen } = useSelector(state => state.projects);
+  const { modalUploadOpen } = useSelector(state => state.files);
 
   return (
     <Container>
       <h4>TrABalHo</h4>
-      <button onClick={handleAddProject}>Add</button>
+      <Button onClick={handleAddProject}>Add</Button>
       <ContainerWorks>
         {works.data.map(work => {
-          console.log(works.data);
-          const thumb = work.files.find(file => file.id === work.file_id);
+          const thumb =
+            work.files && work.files.find(file => file.id === work.file_id);
           return (
             <Work
               key={work.id}
               color={scale((100 * work.id) / works.data.length / 100)}
               image={thumb && thumb.url}
-            />
+            >
+              <Can>
+                <Button onClick={() => handleUploadFiles(work)}>Up</Button>
+              </Can>
+            </Work>
           );
         })}
       </ContainerWorks>
       {projectModalOpen && <ProjectCreateModal />}
+      {modalUploadOpen && <UploadFiles />}
     </Container>
   );
 }

@@ -8,6 +8,7 @@ import FilesActions from "../../store/ducks/files";
 import { Container, ContainerWorks, Work } from "./styles";
 import Button from "../../styles/components/Buttons";
 import Can from "../../components/Can";
+import store from "../../store";
 
 function Works() {
   const scale = chroma.scale([
@@ -32,11 +33,11 @@ function Works() {
   const works = useSelector(state => state.projects);
   const { projectModalOpen } = useSelector(state => state.projects);
   const { modalUploadOpen } = useSelector(state => state.files);
-
+  let loggedin = store.getState().auth.signedIn;
   return (
     <Container>
       <h4>TrABalHo</h4>
-      <Button onClick={handleAddProject}>Add</Button>
+      {loggedin && <Button onClick={handleAddProject}>Add</Button>}
       <ContainerWorks>
         {works.data.map(work => {
           const thumb =
@@ -47,9 +48,9 @@ function Works() {
               color={scale((100 * work.id) / works.data.length / 100)}
               image={thumb && thumb.url}
             >
-              <Can>
+              {loggedin && (
                 <Button onClick={() => handleUploadFiles(work)}>Up</Button>
-              </Can>
+              )}
             </Work>
           );
         })}

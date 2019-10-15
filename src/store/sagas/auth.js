@@ -27,7 +27,7 @@ export function* signOut() {
   localStorage.removeItem("@portifolio:token");
   localStorage.removeItem("@portifolio:team");
 
-  yield put(push("/signin"));
+  yield put(push("/"));
 }
 
 export function* signUp({ name, email, password }) {

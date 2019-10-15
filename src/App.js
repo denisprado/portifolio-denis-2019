@@ -8,10 +8,8 @@ import Routes from "./routes";
 const App = () => {
   return (
     <Provider store={store}>
-      <>
-        <Routes />
-        <GlobalStyle />
-      </>
+      <Routes />
+      <GlobalStyle />
     </Provider>
   );
 };

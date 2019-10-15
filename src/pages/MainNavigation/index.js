@@ -4,12 +4,20 @@ import { Parallax } from "react-spring/renderprops-addons";
 import Sobre from "../Sobre";
 import Home from "../Home";
 import Works from "../Works";
-
+import { Link } from "react-router-dom";
 import Button from "../../styles/components/Buttons";
 import { LayerContainer, Menu } from "./styles";
+import AuthActions from "../../store/ducks/auth";
+import { useDispatch } from "react-redux";
+import store from "../../store";
 
 function MainNavigation() {
   let parallax = React.createRef();
+  let loggedin = store.getState().auth.signedIn;
+  const dispatch = useDispatch();
+  function handleSignOut() {
+    dispatch(AuthActions.signOut());
+  }
 
   return (
     <>
@@ -67,9 +75,15 @@ function MainNavigation() {
             </Button>
           </li>
           <li>
-            <Button link to="/signin">
-              Signin
-            </Button>
+            {!loggedin ? (
+              <Button link>
+                <Link to="/signin">Signin</Link>
+              </Button>
+            ) : (
+              <Button link>
+                <Link onClick={handleSignOut}>Signout</Link>
+              </Button>
+            )}
           </li>
         </ul>
       </Menu>

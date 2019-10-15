@@ -11,7 +11,7 @@ import Guest from "./guest";
 const Routes = () => (
   <ConnectedRouter history={history}>
     <Switch>
-      <Guest path="/" component={MainNavigation} />
+      <Guest exact path="/" component={MainNavigation} />
       <Guest path="/signin" component={SignIn} />
     </Switch>
   </ConnectedRouter>

@@ -6,7 +6,7 @@ import Home from "../Home";
 import Works from "../Works";
 import { Link } from "react-router-dom";
 import Button from "../../styles/components/Buttons";
-import { LayerContainer, Menu } from "./styles";
+import { LayerContainer, Menu, Footer } from "./styles";
 import AuthActions from "../../store/ducks/auth";
 import { useDispatch } from "react-redux";
 import store from "../../store";
@@ -74,6 +74,10 @@ function MainNavigation() {
               contato
             </Button>
           </li>
+        </ul>
+      </Menu>
+      <Footer>
+        <ul>
           <li>
             {!loggedin ? (
               <Button link>
@@ -86,7 +90,7 @@ function MainNavigation() {
             )}
           </li>
         </ul>
-      </Menu>
+      </Footer>
     </>
   );
 }

@@ -1,14 +1,13 @@
 import chroma from "chroma-js";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import ProjectsActions from "../../store/ducks/projects";
 import ProjectCreateModal from "../../components/ProjectCreateModal";
 import UploadFiles from "../../components/UploadFiles";
-import FilesActions from "../../store/ducks/files";
-import { Container, ContainerWorks, Work } from "./styles";
-import Button from "../../styles/components/Buttons";
-import Can from "../../components/Can";
 import store from "../../store";
+import FilesActions from "../../store/ducks/files";
+import ProjectsActions from "../../store/ducks/projects";
+import Button from "../../styles/components/Buttons";
+import { Container, ContainerWorks, Work } from "./styles";
 
 function Works() {
   const scale = chroma.scale([
@@ -45,9 +44,12 @@ function Works() {
           return (
             <Work
               key={work.id}
-              color={scale((100 * work.id) / works.data.length / 100)}
+              color={scale(
+                (100 * (work.id + 0.00001)) / works.data.length / 100
+              )}
               image={thumb && thumb.url}
             >
+              <p>{work.title}</p>
               {loggedin && (
                 <Button onClick={() => handleUploadFiles(work)}>Up</Button>
               )}

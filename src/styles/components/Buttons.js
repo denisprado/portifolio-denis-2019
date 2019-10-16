@@ -2,8 +2,8 @@ import styled, { css } from "styled-components";
 
 const sizes = {
   small: css`
-    height: 28px;
-    font-size: 12px;
+    height: 21px;
+    font-size: 8px;
   `,
   default: css`
     height: 36px;

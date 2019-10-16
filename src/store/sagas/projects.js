@@ -16,13 +16,14 @@ export function* updateProject() {
   yield put(ProjectsActions.updateProjectSuccess(response.data));
 }
 
-export function* createProject({ title, description }) {
+export function* createProject({ title, description, category_id }) {
   try {
     const response = yield call(api.post, "projects", {
       title,
-      description
+      description,
+      category_id
     });
-    console.log(title);
+
     yield put(ProjectsActions.createProjectSuccess(response.data));
     yield put(ProjectsActions.closeProjectModal());
   } catch (err) {

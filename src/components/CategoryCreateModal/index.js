@@ -1,34 +1,24 @@
-import { Choice } from "@rocketseat/unform";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-
-import ProjectsActions from "../../store/ducks/projects";
-import Button from "../../styles/components/Buttons";
 import Modal from "../Modal";
+import CategoriesActions from "../../store/ducks/categories";
 import { ModalForm, ModalInput } from "../Modal/styles";
+import Button from "../../styles/components/Buttons";
 
 // import { Container } from './styles';
 
-function ProjectCreateModal() {
+function CategoryCreateModal() {
   const dispatch = useDispatch();
-  const projects = useSelector(state => state.projects);
   const categories = useSelector(state => state.categories);
 
-  const categoriesOption = categories.data.map(cat => ({
-    value: cat.id,
-    label: cat.title
-  }));
-
-  function handleNewProjectSubmit({ title, description, category_id }) {
-    dispatch(
-      ProjectsActions.createProjectRequest(title, description, category_id)
-    );
+  function handleNewCategorySubmit({ title, description }) {
+    dispatch(CategoriesActions.createCategoryRequest(title, description));
   }
 
   useEffect(() => {
     const listener = e => {
       if (e.key === "Escape") {
-        dispatch(ProjectsActions.closeProjectModal());
+        dispatch(CategoriesActions.closeCategoryModal());
       }
     };
     window.addEventListener("keydown", listener);
@@ -38,26 +28,23 @@ function ProjectCreateModal() {
     };
   }, [dispatch]);
 
-  return projects.projectModalOpen ? (
+  return categories.categoryModalOpen ? (
     <>
       <Modal size="big">
-        <h1>Criar projeto</h1>
-        <ModalForm onSubmit={handleNewProjectSubmit}>
+        <h1>Criar categoria</h1>
+        <ModalForm onSubmit={handleNewCategorySubmit}>
           <span>Nome</span>
           <ModalInput name="title" id="title" />
 
-          <span>Description</span>
+          <span>Descrição</span>
           <ModalInput multiline rows="5" name="description" />
-
-          <span>Category</span>
-          <Choice name="category_id" options={categoriesOption} multiple />
 
           <Button size="big" type="submit">
             Salvar
           </Button>
           <Button
             onClick={() => {
-              dispatch(ProjectsActions.closeProjectModal());
+              dispatch(CategoriesActions.closeCategoryModal());
             }}
             size="small"
             color="gray"
@@ -70,4 +57,4 @@ function ProjectCreateModal() {
   ) : null;
 }
 
-export default ProjectCreateModal;
+export default CategoryCreateModal;

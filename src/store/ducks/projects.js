@@ -12,7 +12,7 @@ const { Types, Creators } = createActions({
   getProjectSuccess: ["project"],
   openProjectModal: null,
   closeProjectModal: null,
-  createProjectRequest: ["title", "description"],
+  createProjectRequest: ["title", "description", "category_id"],
   createProjectSuccess: ["project"],
   deleteProjectRequest: ["project"],
   deleteProjectSuccess: ["id"]

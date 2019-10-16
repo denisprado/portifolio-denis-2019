@@ -17,6 +17,17 @@ export const ContainerWorks = styled.div`
   justify-content: center;
 `;
 
+export const Dashboard = styled.div`
+  flex-direction: row;
+  width: 100vw;
+  button {
+    margin-right: 5px;
+  }
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
 export const Work = styled.div`
   height: 40vh;
   width: 4vw;

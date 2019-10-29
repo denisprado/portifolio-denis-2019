@@ -8,5 +8,5 @@ export const Container = styled.div`
   margin-top: ${props => (props.height ? `${props.height}rem` : "1rem")};
   position: relative;
   content: " ";
-  width: 100vw;
+  width: 98vw;
 `;

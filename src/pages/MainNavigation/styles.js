@@ -18,14 +18,20 @@ export const LayerContainer = styled(ParallaxLayer)`
 `;
 
 export const Menu = styled.div`
-  padding: 1rem;
   position: fixed;
   display: flex;
   justify-items: center;
   align-items: center;
-  img,
+  img {
+    margin: 2rem 0 0 5rem;
+    width: 5rem;
+    height: 5rem;
+  }
+  ul {
+    margin: 2rem;
+  }
   li {
-    margin: 1rem 0rem 1rem 1rem;
+    margin: 1rem 0rem 1rem 0rem;
   }
 `;
 

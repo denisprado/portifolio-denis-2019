@@ -8,7 +8,7 @@ function Baseline() {
   const arrayLines = [];
 
   for (let index = 0; index <= lines; index++) {
-    arrayLines[index] = <Line />;
+    arrayLines[index] = <Line key={index} />;
   }
 
   useEffect(() => {

@@ -8,11 +8,11 @@ import Guides from "./Guides";
 // Hook
 export function useWindowSize() {
   const isClient = typeof window === "object";
-
+  const rem = parseFloat(getComputedStyle(document.documentElement).fontSize);
   function getSize() {
     return {
-      width: isClient ? window.innerWidth : undefined,
-      height: isClient ? window.innerHeight : undefined
+      width: isClient ? window.innerWidth / rem : undefined,
+      height: isClient ? window.innerHeight / rem : undefined
     };
   }
 
@@ -36,10 +36,9 @@ export function useWindowSize() {
 
 function Grid() {
   const initialSetup = {
-    margins: {
-      right: 6,
-      left: 6
-    },
+    breakpoints: [1920, 1200, 1024, 768, 568, 320],
+    minCol: 10,
+    margins: 3,
     guides: {
       visible: true,
       columns: 6,
@@ -55,8 +54,10 @@ function Grid() {
       {initialSetup.guides.visible && (
         <Guides
           columns={initialSetup.guides.columns}
-          margins={initialSetup.margins}
+          breakpoints={initialSetup.breakpoints}
           gutter={initialSetup.guides.gutter}
+          minCol={initialSetup.minCol}
+          margins={initialSetup.margins}
         />
       )}
       {initialSetup.baseline.visible && <Baseline />}

@@ -40,12 +40,12 @@ function Grid() {
     minCol: 10,
     margins: 3,
     guides: {
-      visible: true,
+      visible: false,
       columns: 6,
       gutter: 1
     },
     baseline: {
-      visible: true
+      visible: false
     }
   };
 

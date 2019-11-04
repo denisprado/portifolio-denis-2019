@@ -2,9 +2,10 @@ import { createGlobalStyle } from "styled-components";
 //import 'react-redux-toastr/lib/css/react-redux-toastr.min.css';
 
 const GlobalStyle = createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css?family=Major+Mono+Display|Montserrat&display=swap');
+  @import url('https://use.typekit.net/xoi7mxq.css');
 
   * {
+    font-size:16px;
   padding: 0;
   margin: 0;
   outline: 0;
@@ -19,17 +20,17 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    background: #353940;
-    color: #fff;
-    font-family: "Montserrat", sans-serif;
+    background: #fff;
+    color: #353940;
+    font-family: input-mono-narrow, sans-serif;
     text-rendering: optimizeLegibility !important;
     -webkit-font-smoothing: antialiased !important;
   }
   
   p {
-    font-size: 1.2rem;
+    font-size: (1/1.2)rem;
     margin-bottom: 1.25rem;
-    line-height: 1.5rem;
+    line-height: 1rem;
   }
 
   a {
@@ -40,8 +41,7 @@ const GlobalStyle = createGlobalStyle`
   h2,
   h3,
   h4 {
-    
-    font-family: "Major Mono Display", monospace;
+    font-family: input-mono-narrow, monospace;
   }
 
   
@@ -51,10 +51,9 @@ const GlobalStyle = createGlobalStyle`
   h3,
   h4,
   h5 {
-    margin: 2.75rem 0 1rem;
-    font-family: "Major Mono Display", monospace;
+    font-family: input-mono-narrow, monospace;
     font-weight: 400;
-    line-height: 1.15;
+    color: #353940;
   }
 
   h1 {
@@ -63,7 +62,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   h2 {
-    font-size: 3.157em;
+    font-size: 2em;
   }
 
   h3 {
@@ -88,7 +87,6 @@ const GlobalStyle = createGlobalStyle`
     display: flex;
     li {
       margin-right: 1rem;
-      text-transform: uppercase;
     }
   }
 
@@ -112,7 +110,7 @@ const GlobalStyle = createGlobalStyle`
 
   input,
   button {
-    font-family: "Montserrat", sans-serif;
+    font-family: input-mono-narrow, sans-serif;
   }
 
   button {

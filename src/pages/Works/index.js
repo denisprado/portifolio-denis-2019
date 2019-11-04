@@ -49,7 +49,7 @@ function Works() {
 
   return (
     <Container>
-      <h4>TrABalHo</h4>
+      <h4>Trabalho</h4>
       {loggedin && (
         <Dashboard>
           <Button type="button" onClick={handleAddProject}>

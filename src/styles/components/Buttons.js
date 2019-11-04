@@ -2,16 +2,16 @@ import styled, { css } from "styled-components";
 
 const sizes = {
   small: css`
-    height: 21px;
-    font-size: 8px;
+    height: 1rem;
+    font-size: 0.5rem;
   `,
   default: css`
-    height: 36px;
-    font-size: 14px;
+    height: 1.2rem;
+    font-size: 1rem;
   `,
   big: css`
-    height: 48px;
-    font-size: 18px;
+    height: 1.5 * 1.2rem;
+    font-size: 1.5rem;
   `
 };
 
@@ -43,11 +43,9 @@ const Button = styled.button.attrs({})`
   background: #7289da;
   border: 0;
   color: #fff;
-  font-size: 12px;
   padding: 0 10px;
-  margin:16px 0 0 0;
-  text-transform: uppercase;
-  font-weight: 700;
+  margin:1rem 0 0 0;
+  font-weight: 400;
 
   ${props => sizes[props.sizes || "default"]}
   ${props => colors[props.color || "default"]}
@@ -64,7 +62,9 @@ const Button = styled.button.attrs({})`
   ${props =>
     props.link === true &&
     css`
+      text-transform: none;
       background: none;
+      color: #000;
       border: none;
       &:hover {
         background: none;

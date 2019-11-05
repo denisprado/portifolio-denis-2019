@@ -40,6 +40,11 @@ export const Content = styled.div`
 
 export const ContentLayer = styled.div`
   display: flex;
+  width: 80rem;
+  height: 100vh;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 `;
 
 export const LayerContainer = styled(ParallaxLayer)`

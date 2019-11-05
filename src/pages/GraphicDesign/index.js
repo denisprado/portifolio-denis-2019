@@ -1,21 +1,26 @@
-import React from 'react';
+import React from "react";
 
-import { Container, IdentidadeVisual, DesignEditorial, MediaSocial } from './styles';
+import {
+  Container,
+  IdentidadeVisual,
+  DesignEditorial,
+  MediaSocial
+} from "./styles";
 
-function GraphicDesign (){
-return (
+function GraphicDesign() {
+  return (
     <Container>
-        <IdentidadeVisual>
-            <p>Identidade Visual</p>
-        </IdentidadeVisual>      
-        <DesignEditorial>
-            <p>Design Editorial</p>
-        </DesignEditorial>
-        <MediaSocial>
-            <p>Gráfica & Social Media</p>
-        </MediaSocial>
-    </Container>  
-    )  
-};
+      <DesignEditorial>
+        <p>Design Editorial</p>
+      </DesignEditorial>
+      <IdentidadeVisual>
+        <p>Identidade Visual</p>
+      </IdentidadeVisual>
+      <MediaSocial>
+        <p>Gráfica & Social Media</p>
+      </MediaSocial>
+    </Container>
+  );
+}
 
 export default GraphicDesign;

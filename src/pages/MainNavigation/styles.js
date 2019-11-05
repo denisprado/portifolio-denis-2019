@@ -35,6 +35,9 @@ export const Content = styled.div`
   flex-direction: column;
   position: absolute;
   margin-top: 6rem;
+  &:first-child {
+    margin-top: 2rem;
+  }
   width: 80rem;
 `;
 

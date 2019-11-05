@@ -44,22 +44,22 @@ function MainNavigation() {
           <Menu>
             <ul>
               <li>
-                <Button link sizes="big" onClick={() => parallax.scrollTo(1)}>
+                <Button link onClick={() => parallax.scrollTo(1)}>
                   Sobre
                 </Button>
               </li>
               <li>
-                <Button link sizes="big" onClick={() => parallax.scrollTo(2)}>
+                <Button link onClick={() => parallax.scrollTo(2)}>
                   Trabalho
                 </Button>
               </li>
               <li>
-                <Button link sizes="big" onClick={() => parallax.scrollTo(3)}>
+                <Button link onClick={() => parallax.scrollTo(3)}>
                   Design Gráfico
                 </Button>
               </li>
               <li>
-                <Button link sizes="big" onClick={() => parallax.scrollTo(3)}>
+                <Button link onClick={() => parallax.scrollTo(3)}>
                   Desenvolvimento Web
                 </Button>
               </li>
@@ -78,7 +78,7 @@ function MainNavigation() {
           <Works />
         </ContentLayer>
         <ContentLayer>
-          <GraphicDesign/>
+          <GraphicDesign />
         </ContentLayer>
       </Content>
 

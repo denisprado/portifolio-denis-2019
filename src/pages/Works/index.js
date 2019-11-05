@@ -9,7 +9,14 @@ import FilesActions from "../../store/ducks/files";
 import CategoriesActions from "../../store/ducks/categories";
 import ProjectsActions from "../../store/ducks/projects";
 import Button from "../../styles/components/Buttons";
-import { Container, ContainerWorks,ContainerWork, Work, Dashboard, WorkMenu } from "./styles";
+import {
+  Container,
+  ContainerWorks,
+  ContainerWork,
+  Work,
+  Dashboard,
+  WorkMenu
+} from "./styles";
 import { faTrash, faUpload } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -51,15 +58,12 @@ function Works() {
     <Container>
       <WorkMenu>
         <h4>Trabalho</h4>
-        {works.data.map(
-          (work, index) => {
-            const workCategories = categories.data.find(
-              cat => work.category_id === cat.id
-            )
-            workCategories && workCategories.map(workCat => (<p>workCat.title</p>))
-          }
-        )
-        }
+        {works.data.map((work, index) => {
+          const workCategories = categories.data.find(
+            cat => work.category_id === cat.id
+          );
+          workCategories && workCategories.map(workCat => workCat.title);
+        })}
         {loggedin && (
           <Dashboard>
             <Button type="button" onClick={handleAddProject}>
@@ -71,7 +75,7 @@ function Works() {
           </Dashboard>
         )}
       </WorkMenu>
-      
+
       <ContainerWorks>
         {works.data.map((work, index) => {
           const thumb =
@@ -79,16 +83,24 @@ function Works() {
           return (
             <ContainerWork>
               <h5>{work.title}</h5>
-              <Work key={work.id} color={scale((100 * index) / works.data.length / 100)} image={thumb && thumb.url}>
+              <Work
+                key={work.id}
+                color={scale((100 * index) / works.data.length / 100)}
+                image={thumb && thumb.url}
+              >
                 {loggedin && (
                   <>
                     <ul>
                       <li>
                         {work.files &&
                           work.files.map(file => (
-                            <img key={file.id} src={file.url} widht="25px" height="25px"/>
-                          ))
-                        }
+                            <img
+                              key={file.id}
+                              src={file.url}
+                              widht="50px"
+                              height="50px"
+                            />
+                          ))}
                       </li>
                     </ul>
                     <Dashboard>
@@ -110,14 +122,12 @@ function Works() {
               </Work>
             </ContainerWork>
           );
-        })
-      }
+        })}
       </ContainerWorks>
 
       {categoryModalOpen && <CategoryCreateModal />}
       {projectModalOpen && <ProjectCreateModal />}
       {modalUploadOpen && <UploadFiles />}
-      
     </Container>
   );
 }

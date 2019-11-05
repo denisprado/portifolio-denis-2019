@@ -62,6 +62,7 @@ const Button = styled.button.attrs({})`
   ${props =>
     props.link === true &&
     css`
+      font-weight: 100;
       text-transform: none;
       background: none;
       color: #000;

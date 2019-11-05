@@ -20,19 +20,17 @@ export const ContainerWorks = styled.div`
 export const ContainerWork = styled.div`
   display: flex;
   flex-direction: column;
-`
+`;
 
 export const WorkMenu = styled.div`
   display: flex;
   flex-direction: column;
   width: 15rem;
   justify-content: start;
-`
-
+`;
 
 export const Dashboard = styled.div`
   flex-direction: row;
-  width: 100vw;
   button {
     margin-right: 5px;
   }
@@ -53,13 +51,11 @@ export const Work = styled.div`
   justify-content: flex-start;
   transition: all 0.8s;
   cursor: pointer;
-
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
   &:hover {
-
     background-image: ${props => props.image && `url('${props.image}')`};
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
     margin: 0.35rem;
     height: 34rem;
     width: 24rem;

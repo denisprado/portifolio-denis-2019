@@ -22,7 +22,8 @@ const GlobalStyle = createGlobalStyle`
   body {
     background: #fff;
     color: #353940;
-    font-family: input-mono-narrow, sans-serif;
+    font-family: input-mono, sans-serif;
+    font-weight: 100;
     text-rendering: optimizeLegibility !important;
     -webkit-font-smoothing: antialiased !important;
   }
@@ -40,19 +41,10 @@ const GlobalStyle = createGlobalStyle`
   h1,
   h2,
   h3,
-  h4 {
-    font-family: input-mono-narrow, monospace;
-  }
-
-  
-
-  h1,
-  h2,
-  h3,
   h4,
   h5 {
-    font-family: input-mono-narrow, monospace;
-    font-weight: 400;
+    font-family: input-mono, monospace;
+    font-weight: 100;
     color: #353940;
   }
 
@@ -110,7 +102,8 @@ const GlobalStyle = createGlobalStyle`
 
   input,
   button {
-    font-family: input-mono-narrow, sans-serif;
+    font-family: input-mono, sans-serif;
+    font-weight:100;
   }
 
   button {

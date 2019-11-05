@@ -17,12 +17,18 @@ function UploadFiles() {
   function onSubmit(e) {
     const data = new FormData();
 
-    // loop through files
-    for (let i = 0; i < files.length; i++) {
-      // get item
-      data.append("file", files[i], files[i].name);
-      // or
+    if (Array.isArray(files)) {
+      // loop through files
+      for (let i = 0; i < files.length; i++) {
+        // get item
+        data.append("file", files[i], files[i].name);
+        // or
+      }
+    } else {
+      console.log(files);
+      //data.append("file", files);
     }
+
     dispatch(FilesActions.uploadFilesRequest(data, p.id));
   }
 

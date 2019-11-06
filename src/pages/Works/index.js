@@ -9,6 +9,7 @@ import FilesActions from "../../store/ducks/files";
 import CategoriesActions from "../../store/ducks/categories";
 import ProjectsActions from "../../store/ducks/projects";
 import Button from "../../styles/components/Buttons";
+
 import {
   Container,
   ContainerWorks,
@@ -19,6 +20,7 @@ import {
 } from "./styles";
 import { faTrash, faUpload } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import MainNavigation from "../MainNavigation";
 
 function Works() {
   const scale = chroma.scale([
@@ -55,80 +57,82 @@ function Works() {
   let loggedin = store.getState().auth.signedIn;
 
   return (
-    <Container>
-      <WorkMenu>
-        <h4>Trabalho</h4>
-        {works.data.map((work, index) => {
-          const workCategories = categories.data.find(
-            cat => work.category_id === cat.id
-          );
-          workCategories && workCategories.map(workCat => workCat.title);
-        })}
-        {loggedin && (
-          <Dashboard>
-            <Button type="button" onClick={handleAddProject}>
-              Add Project
-            </Button>
-            <Button type="button" onClick={handleCreateCategory}>
-              Add Category
-            </Button>
-          </Dashboard>
-        )}
-      </WorkMenu>
+    <MainNavigation>
+      <Container>
+        <WorkMenu>
+          <h4>Trabalho</h4>
+          {works.data.map((work, index) => {
+            const workCategories = categories.data.find(
+              cat => work.category_id === cat.id
+            );
+            workCategories && workCategories.map(workCat => workCat.title);
+          })}
+          {loggedin && (
+            <Dashboard>
+              <Button type="button" onClick={handleAddProject}>
+                Add Project
+              </Button>
+              <Button type="button" onClick={handleCreateCategory}>
+                Add Category
+              </Button>
+            </Dashboard>
+          )}
+        </WorkMenu>
 
-      <ContainerWorks>
-        {works.data.map((work, index) => {
-          const thumb =
-            work.files && work.files.find(file => file.id === work.file_id);
-          return (
-            <ContainerWork>
-              <h5>{work.title}</h5>
-              <Work
-                key={work.id}
-                color={scale((100 * index) / works.data.length / 100)}
-                image={thumb && thumb.url}
-              >
-                {loggedin && (
-                  <>
-                    <ul>
-                      <li>
-                        {work.files &&
-                          work.files.map(file => (
-                            <img
-                              key={file.id}
-                              src={file.url}
-                              widht="50px"
-                              height="50px"
-                            />
-                          ))}
-                      </li>
-                    </ul>
-                    <Dashboard>
-                      <Button
-                        size="small"
-                        onClick={() => handleUploadFiles(work)}
-                      >
-                        <FontAwesomeIcon icon={faUpload} />
-                      </Button>
-                      <Button
-                        size="small"
-                        onClick={() => handleDeleteProject(work)}
-                      >
-                        <FontAwesomeIcon icon={faTrash} />
-                      </Button>
-                    </Dashboard>
-                  </>
-                )}
-              </Work>
-            </ContainerWork>
-          );
-        })}
-      </ContainerWorks>
+        <ContainerWorks>
+          {works.data.map((work, index) => {
+            const thumb =
+              work.files && work.files.find(file => file.id === work.file_id);
+            return (
+              <ContainerWork>
+                <h5>{work.title}</h5>
+                <Work
+                  key={work.id}
+                  color={scale((100 * index) / works.data.length / 100)}
+                  image={thumb && thumb.url}
+                >
+                  {loggedin && (
+                    <>
+                      <ul>
+                        <li>
+                          {work.files &&
+                            work.files.map(file => (
+                              <img
+                                key={file.id}
+                                src={file.url}
+                                widht="50px"
+                                height="50px"
+                              />
+                            ))}
+                        </li>
+                      </ul>
+                      <Dashboard>
+                        <Button
+                          size="small"
+                          onClick={() => handleUploadFiles(work)}
+                        >
+                          <FontAwesomeIcon icon={faUpload} />
+                        </Button>
+                        <Button
+                          size="small"
+                          onClick={() => handleDeleteProject(work)}
+                        >
+                          <FontAwesomeIcon icon={faTrash} />
+                        </Button>
+                      </Dashboard>
+                    </>
+                  )}
+                </Work>
+              </ContainerWork>
+            );
+          })}
+        </ContainerWorks>
 
-      {categoryModalOpen && <CategoryCreateModal />}
-      {projectModalOpen && <ProjectCreateModal />}
-      {modalUploadOpen && <UploadFiles />}
-    </Container>
+        {categoryModalOpen && <CategoryCreateModal />}
+        {projectModalOpen && <ProjectCreateModal />}
+        {modalUploadOpen && <UploadFiles />}
+      </Container>
+    </MainNavigation>
   );
 }
 

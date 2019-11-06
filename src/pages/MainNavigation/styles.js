@@ -5,11 +5,12 @@ export const Container = styled.div`
   width: 80rem;
   margin: 0rem auto;
   z-index: 1;
+  display: flex;
+  flex-direction: column;
 `;
 
 export const HeaderContainer = styled.div`
-  margin-top: 1rem;
-  position: fixed;
+  margin: 4rem 0 2rem 0;
 `;
 
 export const Header = styled.div`

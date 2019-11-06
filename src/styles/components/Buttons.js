@@ -43,9 +43,7 @@ const Button = styled.button.attrs({})`
   background: #7289da;
   border: 0;
   color: #fff;
-  padding: 0 10px;
-  margin:1rem 0 0 0;
-  font-weight: 400;
+  
 
   ${props => sizes[props.sizes || "default"]}
   ${props => colors[props.color || "default"]}
@@ -67,6 +65,17 @@ const Button = styled.button.attrs({})`
       background: none;
       color: #000;
       border: none;
+      border-radius: 0px;
+      padding: 0;
+      margin: 0;
+      font-weight: 100;
+      text-decoration: none;
+      a {
+        padding: 0;
+        margin: 0;
+        font-weight: 100;
+        text-decoration: none;
+      }
       &:hover {
         background: none;
         border: none;

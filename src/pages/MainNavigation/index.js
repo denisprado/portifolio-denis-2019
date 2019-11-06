@@ -20,8 +20,7 @@ import AuthActions from "../../store/ducks/auth";
 import { useDispatch } from "react-redux";
 import store from "../../store";
 
-function MainNavigation() {
-  let parallax = React.createRef();
+function MainNavigation(props) {
   let loggedin = store.getState().auth.signedIn;
   const dispatch = useDispatch();
   function handleSignOut() {
@@ -35,8 +34,10 @@ function MainNavigation() {
           <Logo>
             <ul>
               <li>
-                <Button link onClick={() => parallax.scrollTo(0)}>
-                  <h2>DENIS FORIGO</h2>
+                <Button link>
+                  <h2>
+                    <Link to="/">DENIS FORIGO</Link>
+                  </h2>
                 </Button>
               </li>
             </ul>
@@ -44,44 +45,30 @@ function MainNavigation() {
           <Menu>
             <ul>
               <li>
-                <Button link onClick={() => parallax.scrollTo(1)}>
-                  Sobre
+                <Button link>
+                  <Link to="/about">Sobre</Link>
                 </Button>
               </li>
               <li>
-                <Button link onClick={() => parallax.scrollTo(2)}>
-                  Trabalho
+                <Button link>
+                  <Link to="/work">Trabalho</Link>
                 </Button>
               </li>
               <li>
-                <Button link onClick={() => parallax.scrollTo(3)}>
-                  Design Gráfico
+                <Button link>
+                  <Link to="/graphic-design">Design Gráfico</Link>
                 </Button>
               </li>
               <li>
-                <Button link onClick={() => parallax.scrollTo(3)}>
-                  Desenvolvimento Web
+                <Button link>
+                  <Link to="/web-dev">Desenvolvimento Web</Link>
                 </Button>
               </li>
             </ul>
           </Menu>
         </Header>
       </HeaderContainer>
-      <Content>
-        <ContentLayer>
-          <Home />
-        </ContentLayer>
-        <ContentLayer>
-          <Sobre />
-        </ContentLayer>
-        <ContentLayer>
-          <Works />
-        </ContentLayer>
-        <ContentLayer>
-          <GraphicDesign />
-        </ContentLayer>
-      </Content>
-
+      {props.children}
       <Footer>
         <ul>
           <li>

@@ -56,6 +56,7 @@ const GlobalStyle = createGlobalStyle`
     line-height:2rem;
     font-style:italic;
     padding-top:.5rem;
+    font-family: ff-meta-serif-web-pro, serif;
   }
 
   h3 {

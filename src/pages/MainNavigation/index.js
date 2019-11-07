@@ -1,14 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useSelector } from "react-redux";
 
-import Sobre from "../Sobre";
-import Home from "../Home";
-import Works from "../Works";
-import GraphicDesign from "../GraphicDesign";
-import { Link } from "react-router-dom";
 import Button from "../../styles/components/Buttons";
 import {
   Header,
   Menu,
+  Link,
   Logo,
   Content,
   Footer,
@@ -22,25 +19,21 @@ import store from "../../store";
 
 function MainNavigation(props) {
   let loggedin = store.getState().auth.signedIn;
+  const margins = useSelector(state => state.grid.margins);
+  console.log(margins);
   const dispatch = useDispatch();
   function handleSignOut() {
     dispatch(AuthActions.signOut());
   }
 
   return (
-    <Container>
+    <Container margin={margins}>
       <HeaderContainer>
         <Header>
           <Logo>
-            <ul>
-              <li>
-                <Button link>
-                  <h2>
-                    <Link to="/">DENIS FORIGO</Link>
-                  </h2>
-                </Button>
-              </li>
-            </ul>
+            <h2>
+              <Link to="/">Denis Forigo</Link>
+            </h2>
           </Logo>
           <Menu>
             <ul>
@@ -74,7 +67,7 @@ function MainNavigation(props) {
           <li>
             {!loggedin ? (
               <Button link>
-                <Link to="/signin">Signin</Link>
+                <Link to="/signin">Admin</Link>
               </Button>
             ) : (
               <Button link>

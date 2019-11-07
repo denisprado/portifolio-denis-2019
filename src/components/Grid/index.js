@@ -9,6 +9,7 @@ import Guides from "./Guides";
 export function useWindowSize() {
   const isClient = typeof window === "object";
   const rem = parseFloat(getComputedStyle(document.documentElement).fontSize);
+
   function getSize() {
     return {
       width: isClient ? window.innerWidth / rem : undefined,
@@ -35,33 +36,51 @@ export function useWindowSize() {
 }
 
 function Grid() {
+  const [gridVisible, setGridVisible] = useState(true);
+
+  useEffect(() => {
+    const listener = e => {
+      if (e.key === "g" && e.ctrlKey === true && e.altKey === true) {
+        setGridVisible(!gridVisible);
+      }
+    };
+    window.addEventListener("keydown", listener);
+
+    return () => {
+      window.removeEventListener("keydown", listener);
+    };
+  }, [gridVisible]);
+
   const initialSetup = {
     breakpoints: [1920, 1200, 1024, 768, 568, 320],
     minCol: 10,
     margins: 3,
+    visible: gridVisible,
     guides: {
-      visible: false,
+      visible: true,
       columns: 6,
       gutter: 1
     },
     baseline: {
-      visible: false
+      visible: true
     }
   };
 
   return (
-    <Container>
-      {initialSetup.guides.visible && (
-        <Guides
-          columns={initialSetup.guides.columns}
-          breakpoints={initialSetup.breakpoints}
-          gutter={initialSetup.guides.gutter}
-          minCol={initialSetup.minCol}
-          margins={initialSetup.margins}
-        />
-      )}
-      {initialSetup.baseline.visible && <Baseline />}
-    </Container>
+    initialSetup.visible && (
+      <Container>
+        {initialSetup.baseline.visible && <Baseline />}
+        {initialSetup.guides.visible && (
+          <Guides
+            columns={initialSetup.guides.columns}
+            breakpoints={initialSetup.breakpoints}
+            gutter={initialSetup.guides.gutter}
+            minCol={initialSetup.minCol}
+            margins={initialSetup.margins}
+          />
+        )}
+      </Container>
+    )
   );
 }
 

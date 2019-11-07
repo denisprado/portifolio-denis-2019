@@ -1,23 +1,28 @@
 import styled from "styled-components";
 import { ParallaxLayer } from "react-spring/renderprops-addons";
+import { Link as ReactLink } from "react-router-dom";
+
+export const Link = styled(ReactLink)`
+  text-decoration: none;
+  color: #aaa;
+`;
 
 export const Container = styled.div`
-  width: 80rem;
-  margin: 0rem auto;
+  margin: 0rem ${props => props.margin}rem;
   z-index: 1;
   display: flex;
   flex-direction: column;
 `;
 
 export const HeaderContainer = styled.div`
-  margin: 4rem 0 2rem 0;
+  margin: 1rem 0 1rem 0;
+  z-index: 999;
 `;
 
 export const Header = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  width: 80rem;
 `;
 
 export const Logo = styled.div``;
@@ -64,17 +69,19 @@ export const LayerContainer = styled(ParallaxLayer)`
       : null};
 `;
 
+export const FooterContainer = styled.div`
+  margin: 4rem 0 1rem 0;
+  z-index: 999;
+`;
+
 export const Footer = styled.div`
-  padding: 1rem;
-  position: absolute;
-  bottom: 20px;
-  right:20px;
   display: flex;
   flex-direction: row;
-
+  justify-content: space-between;
+  position:absolute;
   ul {
     li {
-      margin: 1rem 0rem 1rem 1rem;
+      margin: 40rem 0rem 1rem 1rem;
       }
     }
   }

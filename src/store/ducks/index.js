@@ -7,6 +7,7 @@ import { reducer as projects } from "./projects";
 import { reducer as categories } from "./categories";
 import { reducer as files } from "./files";
 import { reducer as slide } from "./slide";
+import { reducer as grid } from "./grid";
 
 export default history =>
   combineReducers({
@@ -16,5 +17,6 @@ export default history =>
     categories,
     files,
     slide,
+    grid,
     router: connectRouter(history)
   });

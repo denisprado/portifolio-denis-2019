@@ -5,7 +5,6 @@ const GlobalStyle = createGlobalStyle`
   @import url('https://use.typekit.net/xoi7mxq.css');
 
   * {
-    font-size:16px;
   padding: 0;
   margin: 0;
   outline: 0;
@@ -16,21 +15,20 @@ const GlobalStyle = createGlobalStyle`
   body,
   #root {
     height: 100%;
-    
   }
 
   body {
     background: #fff;
     color: #353940;
-    font-family: input-mono, sans-serif;
-    font-weight: 100;
+    font-family: ff-meta-web-pro, sans-serif;
+    font-weight: 500;
     text-rendering: optimizeLegibility !important;
     -webkit-font-smoothing: antialiased !important;
   }
   
   p {
-    font-size: (1/1.2)rem;
-    margin-bottom: 1.25rem;
+    font-size: .875rem;
+    margin: .525rem 1rem 0 0;
     line-height: 1rem;
   }
 
@@ -43,8 +41,8 @@ const GlobalStyle = createGlobalStyle`
   h3,
   h4,
   h5 {
-    font-family: input-mono, monospace;
-    font-weight: 100;
+    font-family: ff-meta-web-pro, sans-serif;;
+    font-weight: 700;
     color: #353940;
   }
 
@@ -54,19 +52,22 @@ const GlobalStyle = createGlobalStyle`
   }
 
   h2 {
-    font-size: 2em;
+    font-size: 1.5rem;
+    line-height:2rem;
+    font-style:italic;
+    padding-top:.5rem;
   }
 
   h3 {
-    font-size: 2.369em;
+    font-size: 2.369rem;
   }
 
   h4 {
-    font-size: 1.777em;
+    font-size: 1.777rem;
   }
 
   h5 {
-    font-size: 1.333em;
+    font-size: 1.333rem;
   }
 
   small,
@@ -77,9 +78,6 @@ const GlobalStyle = createGlobalStyle`
   ul {
     list-style: none;
     display: flex;
-    li {
-      margin-right: 1rem;
-    }
   }
 
   
@@ -98,12 +96,10 @@ const GlobalStyle = createGlobalStyle`
     }
   }
 
- 
-
   input,
   button {
-    font-family: input-mono, sans-serif;
-    font-weight:100;
+    font-family: ff-meta-web-pro, sans-serif;
+    font-weight: 700;
   }
 
   button {

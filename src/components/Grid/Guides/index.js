@@ -2,8 +2,10 @@
 import React, { useEffect } from "react";
 import VerticalGuide from "../VerticalGuide";
 import { useWindowSize } from "../index";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import GridActions from "../../../store/ducks/grid";
+import { divisible } from "../index";
+
 //import { Container } from './styles';
 
 function isPair(num) {
@@ -33,17 +35,17 @@ function Column(windowWidth, m, gutter, columns, min) {
 }
 
 function Guides({ breakpoints, margins, columns, gutter, minCol }) {
+  const rem = parseFloat(getComputedStyle(document.documentElement).fontSize);
   const dispatch = useDispatch();
 
   // get the window size
-  const windowSize = useWindowSize();
-  const width = windowSize.width;
-  const rem = parseFloat(getComputedStyle(document.documentElement).fontSize);
+  let { width } = useWindowSize();
 
   // set the margins according breakpoints
-  let breakpointActive = breakpoints.find(bp => bp / rem <= width) / rem;
-  !isPair(breakpointActive) && breakpointActive++;
-  const mInit = (width - breakpointActive) / 2 + margins;
+  let breakpointActive = Math.floor(
+    breakpoints.find(bp => bp / rem <= width) / rem
+  );
+  let mInit = Math.floor((width - breakpointActive) / 2 + margins);
 
   const col = Column(width, mInit, gutter, columns, minCol);
   const c = col.size;

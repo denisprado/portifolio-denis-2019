@@ -31,9 +31,9 @@ function MainNavigation(props) {
       <HeaderContainer>
         <Header>
           <Logo>
-            <h2>
+            <h1>
               <Link to="/">Denis Forigo</Link>
-            </h2>
+            </h1>
           </Logo>
           <Menu>
             <ul>

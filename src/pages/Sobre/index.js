@@ -7,7 +7,7 @@ function Sobre() {
   return (
     <MainNavigation>
       <Container>
-        <h4>Sobre</h4>
+        <h2>Sobre</h2>
         <p>
           Denis Prado Forigo (Águas de Santa Bárbara/1980) é designer gráfico
           desde 2004. Com formação em Processamento de Dados (CTI/Unesp) e

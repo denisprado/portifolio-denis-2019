@@ -60,7 +60,7 @@ function Works() {
     <MainNavigation>
       <Container>
         <WorkMenu>
-          <h4>Trabalho</h4>
+          <h2>Trabalho</h2>
           {works.data.map((work, index) => {
             const workCategories = categories.data.find(
               cat => work.category_id === cat.id
@@ -85,7 +85,7 @@ function Works() {
               work.files && work.files.find(file => file.id === work.file_id);
             return (
               <ContainerWork>
-                <h5>{work.title}</h5>
+                <h3>{work.title}</h3>
                 <Work
                   key={work.id}
                   color={scale((100 * index) / works.data.length / 100)}
@@ -100,6 +100,7 @@ function Works() {
                               <img
                                 key={file.id}
                                 src={file.url}
+                                alt={file.name}
                                 widht="50px"
                                 height="50px"
                               />

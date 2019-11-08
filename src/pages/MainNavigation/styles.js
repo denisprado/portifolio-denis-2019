@@ -4,11 +4,16 @@ import { Link as ReactLink } from "react-router-dom";
 
 export const Link = styled(ReactLink)`
   text-decoration: none;
-  color: #aaa;
+  color: #000;
+  transition: color 10s ease;
+  &:hover {
+    color: rgba(0, 0, 0, 0.7);
+  }
 `;
 
 export const Container = styled.div`
-  margin: 0rem ${props => props.margin}rem;
+  margin: 0rem ${props => props.margin + 1}rem 0rem
+    ${props => props.margin - 1}rem;
   z-index: 1;
   display: flex;
   flex-direction: column;
@@ -29,10 +34,10 @@ export const Logo = styled.div``;
 export const Menu = styled.div`
   display: flex;
   justify-items: flex-end;
-  align-items: flex-end;
+  align-items: flex-start;
 
   li {
-    margin: 0rem 0 0 2.5rem;
+    margin: 1rem 0 0 1.5rem;
   }
 `;
 

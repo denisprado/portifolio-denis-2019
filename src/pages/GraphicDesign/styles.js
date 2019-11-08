@@ -1,7 +1,4 @@
 import styled from "styled-components";
-import idVisual from "../../assets/images/identidadeVisual.svg";
-import socialMedia from "../../assets/images/socialMediaPrint.svg";
-import designEdit from "../../assets/images/designEditorial.svg";
 
 export const Container = styled.div`
   display: flex;
@@ -12,22 +9,14 @@ export const Container = styled.div`
 export const DesignItem = styled.div`
   width: 20rem;
   height: 20rem;
-  margin: 0 5rem 0 0;
-  background-repeat: no-repeat;
   text-align: center;
-  p {
-    margin-top: 18rem;
+  img {
+    margin-bottom: 0.54rem;
   }
 `;
 
-export const IdentidadeVisual = styled(DesignItem)`
-  background-image: url(${idVisual});
-`;
+export const IdentidadeVisual = styled(DesignItem)``;
 
-export const DesignEditorial = styled(DesignItem)`
-  background-image: url(${designEdit});
-`;
+export const DesignEditorial = styled(DesignItem)``;
 
-export const MediaSocial = styled(DesignItem)`
-  background-image: url(${socialMedia});
-`;
+export const MediaSocial = styled(DesignItem)``;

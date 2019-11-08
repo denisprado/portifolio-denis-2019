@@ -5,6 +5,24 @@ import Baseline from "./Baseline";
 
 import Guides from "./Guides";
 
+export function divisible(value, divisor) {
+  function mod(value, divisor) {
+    let mod = value % divisor;
+    return mod;
+  }
+
+  let module = mod(value, divisor);
+  let i;
+
+  if (module !== 0) {
+    for (i = value; module !== 0; i++) {
+      module = mod(i, divisor);
+    }
+  }
+
+  return i;
+}
+
 // Hook
 export function useWindowSize() {
   const isClient = typeof window === "object";

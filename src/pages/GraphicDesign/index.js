@@ -1,5 +1,8 @@
 import React from "react";
 import MainNavigation from "../MainNavigation";
+import idVisual from "../../assets/images/identidadeVisual.svg";
+import socialMedia from "../../assets/images/socialMediaPrint.svg";
+import designEdit from "../../assets/images/designEditorial.svg";
 import {
   Container,
   IdentidadeVisual,
@@ -12,13 +15,16 @@ function GraphicDesign() {
     <MainNavigation>
       <Container>
         <DesignEditorial>
-          <p>Design Editorial</p>
+          <img src={designEdit} alt="Design Editorial"></img>
+          <h2>Design Editorial</h2>
         </DesignEditorial>
         <IdentidadeVisual>
-          <p>Identidade Visual</p>
+          <img src={idVisual} alt="Identidade Visual"></img>
+          <h2>Identidade Visual</h2>
         </IdentidadeVisual>
         <MediaSocial>
-          <p>Gráfica & Social Media</p>
+          <img src={socialMedia} alt="Gráfica & Social Media"></img>
+          <h2>Gráfica & Social Media</h2>
         </MediaSocial>
       </Container>
     </MainNavigation>

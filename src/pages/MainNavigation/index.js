@@ -7,11 +7,11 @@ import {
   Menu,
   Link,
   Logo,
-  Content,
   Footer,
   Container,
-  ContentLayer,
-  HeaderContainer
+  Content,
+  HeaderContainer,
+  FooterContainer
 } from "./styles";
 import AuthActions from "../../store/ducks/auth";
 import { useDispatch } from "react-redux";
@@ -20,21 +20,17 @@ import store from "../../store";
 function MainNavigation(props) {
   let loggedin = store.getState().auth.signedIn;
   const margins = useSelector(state => state.grid.margins);
-  console.log(margins);
+
   const dispatch = useDispatch();
   function handleSignOut() {
     dispatch(AuthActions.signOut());
   }
 
   return (
-    <Container margin={margins}>
+    <Container>
       <HeaderContainer>
-        <Header>
-          <Logo>
-            <h1>
-              <Link to="/">Denis Forigo</Link>
-            </h1>
-          </Logo>
+        <Header margin={margins}>
+          <Logo to="/">Denis Forigo</Logo>
           <Menu>
             <ul>
               <li>
@@ -61,22 +57,30 @@ function MainNavigation(props) {
           </Menu>
         </Header>
       </HeaderContainer>
-      {props.children}
-      <Footer>
-        <ul>
-          <li>
-            {!loggedin ? (
+      <Content margin={margins}>{props.children}</Content>
+      <FooterContainer>
+        <Footer margin={margins}>
+          <p>Campinas/SP</p>
+          <ul>
+            <li>
               <Button link>
-                <Link to="/signin">Admin</Link>
+                <Link to="/contact">Contato</Link>
               </Button>
-            ) : (
-              <Button link>
-                <Link onClick={handleSignOut}>Signout</Link>
-              </Button>
-            )}
-          </li>
-        </ul>
-      </Footer>
+            </li>
+            <li>
+              {!loggedin ? (
+                <Button link>
+                  <Link to="/signin">login</Link>
+                </Button>
+              ) : (
+                <Button link>
+                  <Link onClick={handleSignOut}>Signout</Link>
+                </Button>
+              )}
+            </li>
+          </ul>
+        </Footer>
+      </FooterContainer>
     </Container>
   );
 }

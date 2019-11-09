@@ -1,13 +1,15 @@
 import React from "react";
 
-import { Container } from "./styles";
+import { Container, Header } from "./styles";
 import MainNavigation from "../MainNavigation";
 
 function Sobre() {
   return (
     <MainNavigation>
       <Container>
-        <h2>Sobre</h2>
+        <Header>
+          <h2>Sobre</h2>
+        </Header>
         <p>
           Denis Prado Forigo (Águas de Santa Bárbara/1980) é designer gráfico
           desde 2004. Com formação em Processamento de Dados (CTI/Unesp) e

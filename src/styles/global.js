@@ -60,14 +60,15 @@ const GlobalStyle = createGlobalStyle`
   }
 
   h2{
-    font-size: 1.2rem;
-    padding: .899rem 0 0.7rem 0;
+    font-size: 2.25rem;
+    padding: 0.94rem 0 0.7rem 0;
     font-family: ff-meta-serif-web-pro,serif;
+    font-weight: 300;
   }
 
   h3{
     font-size: 1rem;
-    padding: .9rem 0 0.7rem 0;
+    padding: 1.9rem 0 0.7rem 0;
   }
 
 

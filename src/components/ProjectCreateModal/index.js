@@ -13,8 +13,7 @@ function ProjectCreateModal() {
   const dispatch = useDispatch();
   const projects = useSelector(state => state.projects);
   const categories = useSelector(state => state.categories);
-  const images = useSelector(state => state.files);
-  console.log(images);
+
   const categoriesOption = categories.data.map(cat => ({
     value: cat.id,
     label: cat.title

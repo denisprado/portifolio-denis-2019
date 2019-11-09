@@ -11,3 +11,5 @@ export const Container = styled.div`
   align-items: flex-start;
   justify-content: center;
 `;
+
+export const Header = styled.div``;
